@@ -1,0 +1,38 @@
+* {
+	box-sizing: border-box;
+	margin: 0px 0px;
+	padding: 0px 0px;
+}
+
+body {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+main {
+  text-align: center;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+nav {
+  padding: 16px;
+}
+
+footer {
+  padding: 16px;
+  text-align: center;
+}
+
+canvas {
+  background-color: #888888;
+}
+
+.navbar {
+  background-color: #222222;
+}
+
+.navbar-brand {
+  color: #ffffff;
+  text-decoration: none;
+}
