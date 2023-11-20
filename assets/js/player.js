@@ -61,22 +61,29 @@ class Player {
   }
 
   pickUp() {
+    var resource = this.#findFirstResourceInPickupRadius();
+
+    if (!resource) return;
+
+    console.log(`Picked up Resource: ${resource}`);
+    resource.die();
+  }
+
+  #findFirstResourceInPickupRadius() {
     for (var i = 0; i < Game.resources.length; i++) {
       var resource = Game.resources[i];
 
       if (
         Utils.pointInCircle(this.#x, this.#y, this.#pickupRadius, resource.getX(), resource.getY())
       ) {
-        console.log(`Picked up Resource: ${resource}`);
-        resource.die();
-        return;
+        return resource;
       }
     }
+
+    return null;
   }
 
   update() {
-    this.render();
-
     if (Game.pressedKeys['a'] || Game.pressedKeys['ArrowLeft'])
       Game.player.move(-1, 0);
 
@@ -91,6 +98,8 @@ class Player {
 
     if (Game.pressedKeys[' '])
       Game.player.pickUp();
+
+    this.render();
   }
 
   render() {

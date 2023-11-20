@@ -60,14 +60,7 @@ class Resource {
   }
 
   die() {
-    var index = Utils.findResourceIndexById(this.id);
-
-    if (index == null) {
-      console.log('ERROR: Could not kill resource');
-      return;
-    }
-
-    Game.resources.splice(index, 1);
+    Game.deleteResourceById(this.id);
   }
 
   update() {

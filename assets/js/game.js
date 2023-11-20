@@ -34,6 +34,17 @@ class Game {
     window.setInterval(Game.update, 50);
   }
 
+  static deleteResourceById(id) {
+    var index = Utils.findResourceIndexById(id);
+
+    if (index == null) {
+      console.log('ERROR: Could not delete Resource');
+      return;
+    }
+
+    Game.resources.splice(index, 1);
+  }
+
   static update() {
     Game.clearFrame();
 
